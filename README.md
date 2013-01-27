@@ -1,4 +1,4 @@
-My Wordpress Login Logo [Get it plugin from Wordpress.org](http://wordpress.org/extend/plugins/my-wp-login-logo/)
+My Wordpress Login Logo [Get plugin from Wordpress.org](http://wordpress.org/extend/plugins/my-wp-login-logo/)
 ======
 
 Description
