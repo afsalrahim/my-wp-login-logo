@@ -3,7 +3,7 @@ Contributors: afsalrahim
 Tags: wordpress login logo, custom logo, login page logo, logo changer, change login page logo
 Requires at least: 3.0.1
 Tested up to: 6.7.1
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.buymeacoffee.com/afsal
@@ -42,6 +42,9 @@ Less than or equal to 320px width and 70px height is the recommended logo size f
 2. WordPress Login Page
 
 == Changelog ==
+
+= 2.5.1 =
+* Security improvements, compatibility updates for WordPress 6.7.1 and minor UI fixes.
 
 = 2.5.0 =
 * Security improvements and compatibility updates for WordPress 6.7.1.
@@ -84,5 +87,5 @@ Less than or equal to 320px width and 70px height is the recommended logo size f
 
 == Upgrade Notice ==
 
-= 2.5.0 =
+= 2.5.1 =
 * Important Release, upgrade immediately. Compatible with 6.7.1
