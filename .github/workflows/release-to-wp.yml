@@ -1,0 +1,37 @@
+name: Deploy to WordPress.org
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Verify Version Sync
+        run: |
+          # Extract version from main plugin PHP file (e.g., * Version: 1.1.0)
+          PHP_VERSION=$(grep -i "Version:" dc-custom-login-logo.php | awk '{print $NF}' | tr -d '\r')
+          
+          # Extract stable tag from readme.txt (e.g., Stable tag: 1.1.0)
+          README_VERSION=$(grep -i "Stable tag:" readme.txt | awk '{print $NF}' | tr -d '\r')
+          
+          echo "Plugin PHP Version: $PHP_VERSION"
+          echo "Readme Stable Tag:  $README_VERSION"
+          
+          if [ "$PHP_VERSION" != "$README_VERSION" ]; then
+            echo "❌ Error: Version mismatch! dc-custom-login-logo.php ($PHP_VERSION) does not match readme.txt ($README_VERSION)."
+            exit 1
+          else
+            echo "✅ Versions match successfully ($PHP_VERSION)."
+          fi
+
+      - name: Publish to WordPress.org SVN
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: my-wp-login-logo
